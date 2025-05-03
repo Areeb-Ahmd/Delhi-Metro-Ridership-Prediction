@@ -8,7 +8,7 @@ def load_model_comparison_data():
     """
     try:
         # Load the CSV file
-        df = pd.read_csv('data/model_performance_metrics.csv')
+        df = pd.read_csv(r'D:\Coding\Projects\Delhi Metro Ridership Prediction\delhi-metro-dashboard\src\data\model_performance_metrics.csv')
         return df
     except FileNotFoundError:
         st.error("The file 'model_performance_metrics.csv' was not found. Please ensure it exists in the 'data' directory.")
