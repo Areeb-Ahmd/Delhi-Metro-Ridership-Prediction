@@ -3,6 +3,7 @@ import pandas as pd
 from folium.plugins import MarkerCluster, HeatMap
 import streamlit as st
 import streamlit.components.v1 as components
+import os
 
 def create_map(df):
     """
@@ -84,7 +85,7 @@ def display_map():
     )
 
     # Path to the pre-generated map HTML file
-    map_file_path = 'D:\Coding\Projects\Delhi Metro Ridership Prediction\delhi-metro-dashboard\src\data\delhi_metro_map.html'
+    map_file_path = os.path.join('src', 'data', 'delhi_metro_map.html')
 
     try:
         # Read the HTML file and embed it in the Streamlit app

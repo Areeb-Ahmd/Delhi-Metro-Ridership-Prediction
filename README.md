@@ -20,7 +20,7 @@ delhi-metro-dashboard
 │   │   └── optimization_insights.py # Analysis of peak hours and resource allocation
 │   ├── assets                       # Contains assets for the dashboard
 │   │   ├── metro_theme.css         # Custom CSS for metro-inspired theme
-│   │   └── metro_logo.svg          # Logo for the Delhi Metro
+│   │   └── logo-passenger.png      # Logo for the Delhi Metro
 │   └── utils                       # Utility functions for data loading and visualization
 │       ├── __init__.py
 │       ├── data_loader.py          # Functions to load and preprocess datasets
@@ -30,6 +30,8 @@ delhi-metro-dashboard
 │   ├── delhi_metro_final.csv       # Cleaned dataset with station information
 │   └── hourly_ridership.csv        # Synthetic hourly ridership data
 ├── requirements.txt                # Required Python packages
+├── Procfile                        # Configuration for deployment
+├── runtime.txt                     # Python version specification
 ├── README.md                       # Project documentation
 └── .streamlit
     └── config.toml                # Configuration settings for the Streamlit app
@@ -70,11 +72,6 @@ Once the app is running, you can navigate through the various sections using the
 ## Contributing
 
 Contributions are welcome! If you have suggestions for improvements or new features, feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
 ---
 
 Thank you for using the Delhi Metro Ridership Prediction Dashboard! Enjoy exploring the data and insights!

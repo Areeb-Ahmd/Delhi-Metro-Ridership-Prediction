@@ -1,9 +1,10 @@
 import pandas as pd
+import os
 
 def load_data():
     """Load the datasets for the Delhi Metro Ridership Prediction project."""
-    delhi_metro_data = pd.read_csv('data/delhi_metro_final.csv')
-    hourly_ridership_data = pd.read_csv('data/hourly_ridership.csv')
+    delhi_metro_data = pd.read_csv(os.path.join('src','data', 'delhi_metro_data.csv'))
+    hourly_ridership_data = pd.read_csv(os.path.join('src', 'data', 'hourly_ridership_data.csv'))
     
     return delhi_metro_data, hourly_ridership_data
 

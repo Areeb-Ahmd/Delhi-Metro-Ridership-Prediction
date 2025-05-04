@@ -4,8 +4,7 @@ import streamlit as st
 
 def load_data():
     """Load the dataset."""
-    df = pd.read_csv(r'D:\Coding\Projects\Delhi Metro Ridership Prediction\delhi-metro-dashboard\src\data\delhi_metro_final.csv')
-    # Drop index column if present
+    df = pd.read_csv(os.path.join('src', 'data', 'delhi_metro_data.csv'))
     if 'Unnamed: 0' in df.columns:
         df = df.drop(columns=['Unnamed: 0'])
     return df
@@ -43,7 +42,7 @@ def display_analysis_graphs():
         unsafe_allow_html=True
     )
 
-    graphs_dir = r"D:\Coding\Projects\Delhi Metro Ridership Prediction\delhi-metro-dashboard\src\assets\data_analysis_graphs"
+    graphs_dir = os.path.join('src', 'data_analysis_graphs')
     graph_files = sorted([f for f in os.listdir(graphs_dir) if f.endswith('.png')])
 
     # Display images one per row

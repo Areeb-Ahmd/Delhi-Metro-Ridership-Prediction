@@ -2,11 +2,12 @@ import streamlit as st
 import pandas as pd
 import datetime
 import matplotlib.pyplot as plt
+import os
 
 # Load the hourly ridership data
 @st.cache_data
 def load_hourly_data():
-    data = pd.read_csv('D:\Coding\Projects\Delhi Metro Ridership Prediction\delhi-metro-dashboard\src\data\hourly_ridership.csv')
+    data = pd.read_csv(os.path.join('src', 'data', 'hourly_ridership_data.csv'))
     return data
 
 # Function to display real-time ridership data for selected stations

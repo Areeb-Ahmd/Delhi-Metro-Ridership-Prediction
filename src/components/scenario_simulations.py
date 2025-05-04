@@ -3,16 +3,17 @@ import pandas as pd
 import numpy as np
 from utils.model_utils import load_model
 import joblib
+import os
 
 # Load the trained models
-xgb_model = load_model(r'D:\Coding\Projects\Delhi Metro Ridership Prediction\delhi-metro-dashboard\src\models\xgboost_model.pkl')  
+xgb_model = load_model(os.path.join('src', 'models', 'xgb_model.pkl'))  
 
 # Load the scaler
-scaler = joblib.load(r'D:\Coding\Projects\Delhi Metro Ridership Prediction\delhi-metro-dashboard\src\models\scaler.pkl')
-line_encoder = joblib.load(r'D:\Coding\Projects\Delhi Metro Ridership Prediction\delhi-metro-dashboard\src\models\line_encoder.pkl')
+scaler = joblib.load(os.path.join('src', 'models', 'scaler.pkl'))
+line_encoder = joblib.load(os.path.join('src', 'models', 'line_encoder.pkl'))
 
 # Load the original dataset to calculate ridership thresholds
-df = pd.read_csv(r'D:\Coding\Projects\Delhi Metro Ridership Prediction\delhi-metro-dashboard\src\data\delhi_metro_final.csv')
+df = pd.read_csv(os.path.join('src', 'data', 'delhi_metro_data.csv'))
 ridership_thresholds = (
     df['Daily_Ridership'].quantile(0.33),  # Low threshold
     df['Daily_Ridership'].quantile(0.67)  # High threshold

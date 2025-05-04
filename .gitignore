@@ -37,7 +37,6 @@ env/
 
 # Jupyter Notebook
 .ipynb_checkpoints
-*.ipynb
 
 # Distribution / packaging
 .Python
@@ -78,13 +77,11 @@ logs/
 .env.*.local
 
 # Model files
-*.pkl
 *.h5
 *.model
 *.joblib
 
 # Data files
-*.csv
 *.xlsx
 *.xls
 *.db
