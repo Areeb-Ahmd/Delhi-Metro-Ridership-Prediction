@@ -8,7 +8,7 @@ def load_model_comparison_data():
     """
     try:
         # Load the CSV file
-        df = pd.read_csv(r'D:\Coding\Projects\Delhi Metro Ridership Prediction\delhi-metro-dashboard\src\data\model_performance_metrics.csv')
+        df = pd.read_csv(os.path.join("data", "model_performance_metrics.csv"))
         return df
     except FileNotFoundError:
         st.error("The file 'model_performance_metrics.csv' was not found. Please ensure it exists in the 'data' directory.")
@@ -20,7 +20,7 @@ def plot_model_comparisons(df):
     """
     # Display the summary bar chart image instead of generating separate RMSE, MAE, R2 plots
     model_comparison_path = os.path.join(
-        r"D:\Coding\Projects\Delhi Metro Ridership Prediction\delhi-metro-dashboard\src\assets\model_analysis_graphs",
+        "assets", "model_analysis_graphs",
         "model_comparison.png"
     )
     if os.path.exists(model_comparison_path):
@@ -36,7 +36,7 @@ def display_model_comparison_graphs():
         """,
         unsafe_allow_html=True
     )
-    graphs_dir = os.path.join("src", "assets", "model_analysis_graphs")
+    graphs_dir = os.path.join("assets", "model_analysis_graphs")
 
     if not os.path.exists(graphs_dir):
         st.error(f"The directory '{graphs_dir}' does not exist. Please ensure the path is correct and contains the model comparison graphs.")
@@ -109,14 +109,14 @@ def compare_models():
     )
     # Actual vs Predicted graph for XGBoost
     xgb_actual_vs_pred_path = os.path.join(
-        "src", "assets", "model_analysis_graphs",
+        "assets", "model_analysis_graphs",
         "xgboost_actual_vs_predicted.png"
     )
     if os.path.exists(xgb_actual_vs_pred_path):
         st.image(xgb_actual_vs_pred_path, use_container_width=True)
     # Feature importance 
     xgb_graph_path = os.path.join(
-        "src", "assets", "model_analysis_graphs",
+        "assets", "model_analysis_graphs",
         "xgboost_feature_importance.png"
     )
     if os.path.exists(xgb_graph_path):
@@ -146,14 +146,14 @@ def compare_models():
     )
     # Actual vs Predicted graph for Linear Regression
     lr_actual_vs_pred_path = os.path.join(
-        "src", "assets", "model_analysis_graphs",
+        "assets", "model_analysis_graphs",
         "linear_regression_actual_vs_predicted.png"
     )
     if os.path.exists(lr_actual_vs_pred_path):
         st.image(lr_actual_vs_pred_path, use_container_width=True)
     # Linear Regression Coefficient graph
     lr_coeff_path = os.path.join(
-        "src", "assets", "model_analysis_graphs",
+        "assets", "model_analysis_graphs",
         "linear_regression_coefficients.png"
     )
     if os.path.exists(lr_coeff_path):
@@ -184,7 +184,7 @@ def compare_models():
     )
     # Actual vs Predicted graph for Ensemble
     ensemble_actual_vs_pred_path = os.path.join(
-        "src", "assets", "model_analysis_graphs",
+        "assets", "model_analysis_graphs",
         "ensemble_actual_vs_predicted.png"
     )
     if os.path.exists(ensemble_actual_vs_pred_path):

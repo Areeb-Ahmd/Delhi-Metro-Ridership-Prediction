@@ -85,7 +85,7 @@ def display_map():
     )
 
     # Path to the pre-generated map HTML file
-    map_file_path = os.path.join('src', 'data', 'delhi_metro_map.html')
+    map_file_path = os.path.join('data', 'delhi_metro_map.html')
 
     try:
         # Read the HTML file and embed it in the Streamlit app

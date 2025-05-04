@@ -181,14 +181,14 @@ st.markdown(
 # Load the dataset for key metrics
 @st.cache_data
 def load_data():
-    return pd.read_csv(os.path.join('src', 'data', 'delhi_metro_final.csv'))
+    return pd.read_csv(os.path.join('data', 'delhi_metro_final.csv'))
 
 def load_model_comparison_data():
     """
     Load the model performance metrics from a CSV file.
     """
     try:
-        df = pd.read_csv(os.path.join('src', 'data', 'model_performance_metrics.csv'))
+        df = pd.read_csv(os.path.join('data', 'model_performance_metrics.csv'))
         return df
     except FileNotFoundError:
         st.error("The file 'model_performance_metrics.csv' was not found. Please ensure it exists in the 'data' directory.")
@@ -289,7 +289,7 @@ def display_home():
 
 # Sidebar navigation using streamlit-option-menu
 with st.sidebar:
-    st.image(os.path.join("src", "assets", "logo-passenger.png"))
+    st.image(os.path.join("assets", "logo-passenger.png"))
     
     selected = option_menu(
         menu_title="NAVIGATION",
