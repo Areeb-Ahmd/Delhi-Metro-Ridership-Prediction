@@ -42,9 +42,6 @@ def display_real_time_analysis():
     station_data = hourly_data[hourly_data['Station_Name'] == selected_station]
 
     # Display current ridership and current time
-    #current_hour = datetime.datetime.now().hour
-    #current_time_str = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    #current_ridership = station_data[f'Weekday_{current_hour}'].values[0] if current_hour < 24 else 0
     ist = pytz.timezone('Asia/Kolkata')  # IST timezone
     current_time_ist = datetime.datetime.now(ist)
     current_hour = current_time_ist.hour
