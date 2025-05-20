@@ -3,6 +3,7 @@ import pandas as pd
 import datetime
 import matplotlib.pyplot as plt
 import os
+import pytz
 
 # Load the hourly ridership data
 @st.cache_data
@@ -41,12 +42,17 @@ def display_real_time_analysis():
     station_data = hourly_data[hourly_data['Station_Name'] == selected_station]
 
     # Display current ridership and current time
-    current_hour = datetime.datetime.now().hour
-    current_time_str = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    #current_hour = datetime.datetime.now().hour
+    #current_time_str = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    #current_ridership = station_data[f'Weekday_{current_hour}'].values[0] if current_hour < 24 else 0
+    ist = pytz.timezone('Asia/Kolkata')  # IST timezone
+    current_time_ist = datetime.datetime.now(ist)
+    current_hour = current_time_ist.hour
+    current_time_str = current_time_ist.strftime('%Y-%m-%d %H:%M:%S')
     current_ridership = station_data[f'Weekday_{current_hour}'].values[0] if current_hour < 24 else 0
     st.subheader("Current Ridership and Time:")
     st.markdown(f'<div class="ridership-box">{current_ridership} Passengers</div>', unsafe_allow_html=True)
-    st.markdown(f'<div style="font-size: 1.8rem; margin-top: 0.5rem;">Current Time: <b>{current_time_str}</b></div>', unsafe_allow_html=True)
+    st.markdown(f'<div style="font-size: 1.8rem; margin-top: 0.5rem;">Current Time (IST):  <b>{current_time_str}</b></div>', unsafe_allow_html=True)
 
     # Plot hourly ridership trends
     st.markdown("<hr style='border: 2px solid #001f3f;'>", unsafe_allow_html=True)
